@@ -1,1 +1,1 @@
-# github-actions-demo take 2
+# github-actions-demo
