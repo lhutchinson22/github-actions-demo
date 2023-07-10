@@ -1,20 +1,15 @@
-# This is a GitHub Action that says "Thank you" to new pull requests
-# Author: Lauren Blake
+name: "Thank You Action"
+description: 'Say "Thank You" to new pull requests'
+author: "Colby Fayock <hello@colbyfayock.com>"
 
-# Define the inputs for the action
 inputs:
-  # The GitHub token is required to interact with the GitHub API
   GITHUB_TOKEN:
-    description: "GitHub Token"
+    description: "GitHub token"
     required: true
-  # The Tenor API token is required to search for GIFs
   TENOR_TOKEN:
     description: "Tenor API token"
     required: true
 
-# Define how the action runs
 runs:
-  # Use Node.js version 12
   using: "node12"
-  # The main entry point for the action is the index.js file in the dist folder
   main: "dist/index.js"
