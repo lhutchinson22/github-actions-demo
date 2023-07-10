@@ -10,11 +10,15 @@ async function run() {
   const { context = {} } = github;
   const { pull_request } = context.payload;
 
-  await octokit.issues.createComment({
-    ...context.repo,
-    issue_number: pull_request.number,
-    body: "thank you for submitting a pull request. We will try to review this as soon as possible.",
-  });
+  if (pull_request) {
+    await octokit.issues.createComment({
+      ...context.repo,
+      issue_number: pull_request.number,
+      body: "thank you for submitting a pull request. We will try to review this as soon as possible.",
+    });
+  } else {
+    console.log("This action was not triggered by a pull request.");
+  }
 }
 
 run();
